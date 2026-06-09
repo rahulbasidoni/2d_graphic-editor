@@ -5,6 +5,7 @@
 The Database (shapes array): Instead of only saving pixels, the code keeps a running registry of shapes, their parameters, and a flag indicating whether they are active (visible) or not.
 The Pipeline (redrawCanvas): When an object is deleted or updated, the canvas matrix buffer is completely wiped (clearPicture()). The engine then iterates through the registry
 and re-plots only the active shapes back onto the clean canvas from scratch.
+
 2. Deep Dive Into the Core AlgorithmsRasters (character matrices or pixel grids) are discrete structures, while math shapes are continuous.
 Converting continuous lines or curves into discrete grid positions without using heavy decimal arithmetic (float or double) requires optimization.
  his program leverages two classic computer graphics algorithms:
@@ -25,11 +26,13 @@ setPixel(cx + y, cy + x); // Octant 5
 setPixel(cx - y, cy + x); // Octant 6
 setPixel(cx + y, cy - x); // Octant 7
 setPixel(cx - y, cy - x); // Octant 8
+
 3. Structural Limits and ConstraintsMaximum Capacity (MAX_SHAPES = 100):
 The application caps out once 100 history items have been created. Note that even if you delete a shape, shapeCount continues to rise because deleted items remain in the 
 registry with their active state flag flipped to 0.Array Mapping Safety (setPixel): It contains a crucial defensive guard clause:Cif (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
 If a user inputs coordinates that fall outside your 80x24 boundary grid (e.g., drawing a massive circle whose edges spill over), 
 this guard prevents the code from executing out-of-bounds memory writes, protecting your execution stack from crashing or facing memory corruption.
+
 4. Interactive State Machine (Main Program Execution)The program runs an infinite state loop (while(1)) processing commands entered via standard input (scanf).
 Below is an execution map tracking how a shape travels through the system:[ User Inputs Parameters via Menu ]
                 │
@@ -53,3 +56,23 @@ Below is an execution map tracking how a shape travels through the system:[ User
 Potential Enhancements for Your Code BaseGarbage Collection:
 If you want the program to handle endless edits, modify the addition sequence so that if shapeCount == MAX_SHAPES, it defragments the array by purging items where active == 0.
 Parametric Validation: Adding validation filters checking if a circle's radius is negative before processing saves calculation runtime cycles on corrupted variables.
+
+5. Potential Enhancements for Your Code Base
+A. Garbage Collection and Shape Reuse
+The current system keeps deleted shapes inside the registry by only changing their active status. Reusing inactive slots for new shapes would prevent the shape array from filling up and would allow continuous editing without reaching the maximum limit.
+B. Filled Shape Rendering
+The program currently draws only the outlines of shapes. Implementing filling algorithms for rectangles, circles, and triangles would improve the visual quality and make the graphics appear more realistic
+
+6. User Interaction and Editing Improvements
+A. Shape Identification System
+Each shape can be assigned a unique ID so users can easily select, modify, move, or delete objects directly. This would improve object management and simplify editing operations.
+
+B. Undo and Redo Functionality
+Adding undo and redo operations would allow users to restore previous canvas states after mistakes. This can be implemented using stack-based history management for storing drawing operations.
+
+7. Future System Extensions
+A. Save and Load Support
+The editor currently loses all drawings after program termination. Introducing file handling to save and reload shape data would provide persistent storage and reusable drawing sessions.
+
+B. Graphical User Interface Integration
+The current editor operates entirely through terminal input. Integrating graphics libraries such as SDL or OpenGL would enable mouse interaction, real-time rendering, and a more interactive user experience.
