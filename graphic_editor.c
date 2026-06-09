@@ -54,10 +54,7 @@ void setPixel(int x, int y) {
 // --- Graphics Algorithms ---
 
 // Bresenham's Line Algorithm
-void drawLine(int x1, int y1, int x2, int y2) {
-    int dx = abs(x2 - x1), sx = x1 < x2 ? 1 : -1;
-    int dy = -abs(y2 - y1), sy = y1 < y2 ? 1 : -1;
-    int err = dx + dy, e2;
+
 
     while (1) {
         setPixel(x1, y1);
