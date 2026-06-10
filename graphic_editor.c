@@ -235,19 +235,7 @@ int main() {
                 printf("Shape ID not found.\n");
             }
         }
-        else if (choice == 7) {
-            listShapes();
-            printf("Enter Shape ID to modify: ");
-            int modId;
-            scanf("%d", &modId);
-
-            int found = -1;
-            for (int i = 0; i < shapeCount; i++) {
-                if (shapes[i].id == modId && shapes[i].active) {
-                    found = i;
-                    break;
-                }
-            }
+        
 
             if (found != -1) {
                 printf("Modifying shape details...\n");
