@@ -219,12 +219,7 @@ int main() {
             int delId;
             scanf("%d", &delId);
             
-            int found = 0;
-            for (int i = 0; i < shapeCount; i++) {
-                if (shapes[i].id == delId && shapes[i].active) {
-                    shapes[i].active = 0;
-                    found = 1;
-                    break;
+            
                 }
             }
             if (found) {
