@@ -1,0 +1,16 @@
+Explain this C assignment in simple terms. What is the goal of creating a 2D graphics editor using a character array? What concepts like coordinates, canvas, and drawing are involved?
+
+
+Write C functions to initialize a 2D array canvas with '_' and display it row by row on the screen.
+
+Implement a function setPixel(x, y) that updates the canvas with '*' only if the coordinates are within bounds.
+
+Implement drawLine(x1, y1, x2, y2) in C using Bresenham’s line algorithm for efficient integer-based line drawing.
+
+Using drawLine, implement drawRectangle and drawTriangle functions by connecting appropriate points.
+
+Write a function drawCircle(cx, cy, r) using the midpoint circle algorithm to draw a circle in a 2D grid.
+
+Convert the basic drawing program into a menu-driven system that supports multiple shapes using structures. Add features to store, add, delete, modify, and render all objects.
+
+humanise this promt
