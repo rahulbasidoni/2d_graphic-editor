@@ -76,3 +76,25 @@ The editor currently loses all drawings after program termination. Introducing f
 
 B. Graphical User Interface Integration
 The current editor operates entirely through terminal input. Integrating graphics libraries such as SDL or OpenGL would enable mouse interaction, real-time rendering, and a more interactive user experience.
+
+8. Performance and Memory Optimization
+A. Dynamic Canvas Allocation
+The canvas dimensions are currently fixed using predefined constants. Using dynamic memory allocation would allow users to create custom-sized canvases during runtime, improving flexibility and scalability.
+
+B. Selective Redrawing Optimization
+The program currently redraws the entire canvas after every modification. Optimizing the rendering process to update only modified regions would improve performance and reduce unnecessary computations.
+
+9. Advanced Graphics Features
+A. Color Rendering Support
+The editor can be extended to support multiple colors instead of a single character representation. This would improve the visual appearance and make the graphics system more expressive.
+
+B. Shape Transformation Operations
+Additional operations such as rotation, scaling, and translation can be added for all shapes. These transformations would introduce more advanced computer graphics concepts into the project.
+
+10. Large-Scale System Enhancements
+A. Layering and Grouping System
+Shapes can be organized into layers or groups, allowing users to manage complex drawings more efficiently. This would make the editor behave similarly to professional graphics software.
+
+B. Animation and Frame Support
+The graphics engine can be expanded to support frame-by-frame animation. By rendering multiple frames sequentially, the system could create simple animated graphics and motion effects.
+
